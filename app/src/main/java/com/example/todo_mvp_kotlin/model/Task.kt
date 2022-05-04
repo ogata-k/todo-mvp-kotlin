@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.todo_mvp_kotlin.model
+package com.example.todo_mvp_kotlin.model
 
 import java.util.*
 

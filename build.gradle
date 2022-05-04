@@ -11,4 +11,5 @@ task clean(type: Delete) {
 
 ext {
     guavaVersion = '27.0.1-android'
+    room_version = '2.4.2'
 }

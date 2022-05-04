@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.todo_mvp_kotlin
+package com.example.todo_mvp_kotlin
 
 import org.junit.Test
 

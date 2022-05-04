@@ -1,4 +1,4 @@
-package com.example.jetpackcompose.todo_mvp_kotlin.util
+package com.example.todo_mvp_kotlin.util
 
 import android.os.Handler
 import android.os.Looper

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jetpackcompose.todo_mvp_kotlin">
+    package="com.example.todo_mvp_kotlin">
 
     <application
         android:allowBackup="true"

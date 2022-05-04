@@ -3,17 +3,25 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.jetpackcompose.todo_mvp_kotlin"
+        applicationId "com.example.todo_mvp_kotlin"
         minSdk 24
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -32,7 +40,13 @@ android {
 }
 
 dependencies {
+    // Utility
     implementation "com.google.guava:guava:$guavaVersion"
+
+    // Room libraries
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
