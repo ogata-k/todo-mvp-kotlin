@@ -1,8 +1,8 @@
-package com.example.todo_mvp_kotlin.repository.abstract_source
+package com.example.todo_mvp_kotlin.domain.repository
 
-import com.example.todo_mvp_kotlin.model.Task
+import com.example.todo_mvp_kotlin.domain.model.Task
 
-interface TasksDataSource {
+interface TasksRepository {
     interface LoadTasksCallback {
         fun onTasksLoaded(tasks: List<Task>)
         /// 初回読み取り時にデータが存在しない場合のコールバック

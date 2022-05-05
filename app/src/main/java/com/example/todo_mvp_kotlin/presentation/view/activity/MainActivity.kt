@@ -1,4 +1,4 @@
-package com.example.todo_mvp_kotlin.activity
+package com.example.todo_mvp_kotlin.presentation.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

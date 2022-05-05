@@ -1,9 +1,9 @@
-package com.example.todo_mvp_kotlin.repository.remote
+package com.example.todo_mvp_kotlin.data.source.remote
 
 import android.os.Handler
-import android.os.Looper
-import com.example.todo_mvp_kotlin.model.Task
-import com.example.todo_mvp_kotlin.repository.abstract_source.TasksDataSource
+import com.example.todo_mvp_kotlin.domain.model.Task
+import com.example.todo_mvp_kotlin.data.source.domain.TasksDataSource
+import com.example.todo_mvp_kotlin.domain.repository.TasksRepository
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
 
@@ -22,7 +22,7 @@ object TasksRemoteDataSource : TasksDataSource {
         TASKS_SERVICE_DATA.put(newTask.id, newTask)
     }
 
-    override fun getTasks(callback: TasksDataSource.LoadTasksCallback) {
+    override fun getTasks(callback: TasksRepository.LoadTasksCallback) {
         val tasks: List<Task> = Lists.newArrayList(TASKS_SERVICE_DATA.values)
         // 要求している実行スレッドは外部から渡されているので、ここでは特に指定しない
         // @todo remove deprecated
@@ -33,7 +33,7 @@ object TasksRemoteDataSource : TasksDataSource {
         }
     }
 
-    override fun getTask(taskId: String, callback: TasksDataSource.GetTaskCallback) {
+    override fun getTask(taskId: String, callback: TasksRepository.GetTaskCallback) {
         val task = TASKS_SERVICE_DATA[taskId]
 
         // withを使ってもいいが確実に一回だけ実行させるためにrunで処理をまとめる

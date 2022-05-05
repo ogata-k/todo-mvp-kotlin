@@ -1,11 +1,11 @@
-package com.example.todo_mvp_kotlin.repository.local
+package com.example.todo_mvp_kotlin.data.source.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.todo_mvp_kotlin.repository.local.dao.TasksDao
-import com.example.todo_mvp_kotlin.repository.local.entities.Task
+import com.example.todo_mvp_kotlin.data.source.local.dao.TasksDao
+import com.example.todo_mvp_kotlin.data.source.local.entities.Task
 
 @Database(entities = [Task::class], version = 1, exportSchema = true)
 abstract class LocalDatabase : RoomDatabase() {

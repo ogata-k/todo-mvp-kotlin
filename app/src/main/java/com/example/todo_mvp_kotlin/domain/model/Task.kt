@@ -1,4 +1,4 @@
-package com.example.todo_mvp_kotlin.model
+package com.example.todo_mvp_kotlin.domain.model
 
 import java.util.*
 

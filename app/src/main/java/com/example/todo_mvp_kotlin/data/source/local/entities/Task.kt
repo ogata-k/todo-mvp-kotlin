@@ -1,10 +1,10 @@
-package com.example.todo_mvp_kotlin.repository.local.entities
+package com.example.todo_mvp_kotlin.data.source.local.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
-import com.example.todo_mvp_kotlin.model.Task as modelTask;
+import com.example.todo_mvp_kotlin.domain.model.Task as modelTask;
 
 /**
  * Model class for a Task.

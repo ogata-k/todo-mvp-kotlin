@@ -1,10 +1,11 @@
-package com.example.todo_mvp_kotlin.repository.local
+package com.example.todo_mvp_kotlin.data.source.local
 
 import androidx.annotation.VisibleForTesting
-import com.example.todo_mvp_kotlin.model.Task as ModelTask;
-import com.example.todo_mvp_kotlin.repository.local.dao.TasksDao
-import com.example.todo_mvp_kotlin.repository.local.entities.Task as EntityTask;
-import com.example.todo_mvp_kotlin.repository.abstract_source.TasksDataSource
+import com.example.todo_mvp_kotlin.domain.model.Task as ModelTask;
+import com.example.todo_mvp_kotlin.data.source.local.dao.TasksDao
+import com.example.todo_mvp_kotlin.data.source.local.entities.Task as EntityTask;
+import com.example.todo_mvp_kotlin.data.source.domain.TasksDataSource
+import com.example.todo_mvp_kotlin.domain.repository.TasksRepository
 import com.example.todo_mvp_kotlin.util.AppExecutors
 
 class TasksLocalDataSource  private constructor(
@@ -15,7 +16,7 @@ class TasksLocalDataSource  private constructor(
      * Note: [TasksDataSource.LoadTasksCallback.onDataNotAvailable] is fired if the database doesn't exist
      * or the table is empty.
      */
-    override fun getTasks(callback: TasksDataSource.LoadTasksCallback) {
+    override fun getTasks(callback: TasksRepository.LoadTasksCallback) {
         appExecutors.diskIO.execute {
             val tasks: List<ModelTask> = tasksDao.getTasks().map { it.toModel() }
             appExecutors.mainThread.execute {
@@ -33,7 +34,7 @@ class TasksLocalDataSource  private constructor(
      * Note: [TasksDataSource.GetTaskCallback.onDataNotAvailable] is fired if the [Task] isn't
      * found.
      */
-    override fun getTask(taskId: String, callback: TasksDataSource.GetTaskCallback) {
+    override fun getTask(taskId: String, callback: TasksRepository.GetTaskCallback) {
         appExecutors.diskIO.execute {
             val task = tasksDao.getTaskById(taskId)?.toModel()
             appExecutors.mainThread.execute {

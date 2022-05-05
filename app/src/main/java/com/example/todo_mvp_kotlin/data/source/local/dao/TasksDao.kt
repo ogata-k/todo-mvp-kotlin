@@ -1,7 +1,7 @@
-package com.example.todo_mvp_kotlin.repository.local.dao
+package com.example.todo_mvp_kotlin.data.source.local.dao
 
 import androidx.room.*
-import com.example.todo_mvp_kotlin.repository.local.entities.Task
+import com.example.todo_mvp_kotlin.data.source.local.entities.Task
 
 @Dao
 interface TasksDao {
