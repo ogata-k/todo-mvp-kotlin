@@ -52,11 +52,6 @@ object TasksRemoteDataSource : TasksDataSource {
         TASKS_SERVICE_DATA.put(task.id, task)
     }
 
-    override fun completeTask(task: Task) {
-        val completedTask = task.copy(isCompleted = true)
-        TASKS_SERVICE_DATA.put(task.id, completedTask)
-    }
-
     override fun completeTask(taskId: String) {
         val task: Task? = TASKS_SERVICE_DATA.get(taskId)
         if (task == null) {
@@ -65,11 +60,6 @@ object TasksRemoteDataSource : TasksDataSource {
         }
         val completedTask = task.copy(isCompleted = true)
         TASKS_SERVICE_DATA.put(task.id, completedTask)
-    }
-
-    override fun activateTask(task: Task) {
-        val activeTask = task.copy(isCompleted = false)
-        TASKS_SERVICE_DATA.put(task.id, activeTask)
     }
 
     override fun activateTask(taskId: String) {

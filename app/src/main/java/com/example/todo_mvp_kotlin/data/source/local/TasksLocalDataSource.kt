@@ -51,22 +51,12 @@ class TasksLocalDataSource  private constructor(
         appExecutors.diskIO.execute { tasksDao.insertTask(EntityTask.fromModel(task)) }
     }
 
-    override fun completeTask(task: ModelTask) {
-        appExecutors.diskIO.execute { tasksDao.updateCompleted(task.id, true) }
-    }
-
     override fun completeTask(taskId: String) {
-        // Not required for the local data source because the {@link TasksRepository} handles
-        // converting from a {@code taskId} to a {@link task} using its cached data.
-    }
-
-    override fun activateTask(task: ModelTask) {
-        appExecutors.diskIO.execute { tasksDao.updateCompleted(task.id, false) }
+        appExecutors.diskIO.execute { tasksDao.updateCompleted(taskId, true) }
     }
 
     override fun activateTask(taskId: String) {
-        // Not required for the local data source because the {@link TasksRepository} handles
-        // converting from a {@code taskId} to a {@link task} using its cached data.
+        appExecutors.diskIO.execute { tasksDao.updateCompleted(taskId, false) }
     }
 
     override fun clearCompletedTasks() {

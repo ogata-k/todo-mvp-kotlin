@@ -68,8 +68,8 @@ class TasksRepositoryImpl (
         // Do in memory cache update to keep the app UI up to date
         val completedTask = task.copy(isCompleted = true)
         cacheAndPerform(completedTask) {
-            tasksRemoteDataSource.completeTask(it)
-            tasksLocalDataSource.completeTask(it)
+            tasksRemoteDataSource.completeTask(it.id)
+            tasksLocalDataSource.completeTask(it.id)
         }
     }
 
@@ -83,8 +83,8 @@ class TasksRepositoryImpl (
         // Do in memory cache update to keep the app UI up to date
         val completedTask = task.copy(isCompleted = true)
         cacheAndPerform(completedTask) {
-            tasksRemoteDataSource.activateTask(it)
-            tasksLocalDataSource.activateTask(it)
+            tasksRemoteDataSource.activateTask(it.id)
+            tasksLocalDataSource.activateTask(it.id)
         }
     }
 
