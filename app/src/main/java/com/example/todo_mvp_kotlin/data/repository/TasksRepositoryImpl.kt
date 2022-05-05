@@ -2,8 +2,6 @@ package com.example.todo_mvp_kotlin.data.repository
 
 import com.example.todo_mvp_kotlin.data.source.domain.TasksDataSource
 import com.example.todo_mvp_kotlin.domain.model.Task
-import com.example.todo_mvp_kotlin.data.source.local.TasksLocalDataSource
-import com.example.todo_mvp_kotlin.data.source.remote.TasksRemoteDataSource
 import com.example.todo_mvp_kotlin.domain.repository.TasksRepository
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
@@ -212,8 +210,8 @@ class TasksRepositoryImpl (
          * *
          * @return the [TasksRepositoryImpl] instance
          */
-        @JvmStatic fun getInstance(tasksRemoteDataSource: TasksLocalDataSource,
-                                   tasksLocalDataSource: TasksRemoteDataSource
+        @JvmStatic fun getInstance(tasksRemoteDataSource: TasksDataSource,
+                                   tasksLocalDataSource: TasksDataSource
         ): TasksRepositoryImpl {
             return INSTANCE ?: TasksRepositoryImpl(tasksRemoteDataSource, tasksLocalDataSource)
                 .apply { INSTANCE = this }
