@@ -45,6 +45,7 @@ dependencies {
 
     // Room libraries
     implementation "androidx.room:room-runtime:$room_version"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 

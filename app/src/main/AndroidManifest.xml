@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Todomvpkotlin">
         <activity
-            android:name=".presentation.view.activity.MainActivity"
+            android:name=".presentation.view.activity.TasksActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
